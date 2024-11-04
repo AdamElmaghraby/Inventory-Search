@@ -11,25 +11,11 @@ function App() {
   );
 }
 
-function AddItem(props) {
-  const value = props.text;
-
-  return (
-    <form>
-      <label for="text-form">Type Something</label>
-      <input type="text" value={value} id="text-form" />
-    </form>
-  );
+function ButtonState() {
+  return(
+    <p>Title: </p>
+    <p>Counter: </p>
+  )
 }
-
-AddItem.defaultProps = {
-  number: 2,
-  text: "default",
-};
-
-AddItem.propTypes = {
-  number: PropTypes.number,
-  text: PropTypes.string,
-};
 
 export default App;
