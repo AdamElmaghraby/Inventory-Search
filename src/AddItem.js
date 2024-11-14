@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function AddItem(props) {
   const [name, setName] = useState("");
@@ -20,13 +21,14 @@ function AddItem(props) {
   };
 
   return (
-    <div>
-      <h2>Add a Item</h2>
-      <form>
+    <div className="container">
+      <div className="row">
+        <h2>Add a Item</h2>
         <label htmlFor="name-field">Name:</label>
         <input
           id="name-field"
           type="text"
+          className="form-control"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
@@ -34,6 +36,7 @@ function AddItem(props) {
         <input
           id="price-field"
           type="number"
+          className="form-control"
           value={price}
           onChange={(e) => setPrice(e.target.value)}
         />
@@ -41,6 +44,7 @@ function AddItem(props) {
         <input
           id="type-field"
           type="text"
+          className="form-control"
           value={type}
           onChange={(e) => setType(e.target.value)}
         />
@@ -48,13 +52,20 @@ function AddItem(props) {
         <input
           id="brand-field"
           type="text"
+          className="form-control"
           value={brand}
           onChange={(e) => setBrand(e.target.value)}
         />
-        <button type="button" onClick={addItemButtonPressed}>
+      </div>
+      <div className="row mt-3">
+        <button
+          type="button"
+          className="btn btn-primary"
+          onClick={addItemButtonPressed}
+        >
           Add Item
         </button>
-      </form>
+      </div>
     </div>
   );
 }

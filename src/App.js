@@ -3,6 +3,7 @@ import SearchBar from "./SearchBar";
 import AddItem from "./AddItem";
 import ItemsDisplay from "./ItemsDisplay";
 import { useState } from "react";
+import { Container, Grid } from "@radix-ui/themes";
 
 function App() {
   const [filters, setFilters] = useState({});
@@ -21,11 +22,17 @@ function App() {
   };
 
   return (
-      <div className="App">
-        <SearchBar updateSearchParams={updateFilters} />
+    <div className="container">
+      <div className="row mt-3">
         <ItemsDisplay items={data["items"]} />
-        <AddItem addItem={addItemToData} />;
       </div>
+      <div className="row mt-3">
+        <SearchBar updateSearchParams={updateFilters} />
+      </div>
+      <div className="row mt-3">
+        <AddItem addItem={addItemToData} />
+      </div>
+    </div>
   );
 }
 
