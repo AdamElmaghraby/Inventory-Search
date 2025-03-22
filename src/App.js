@@ -14,11 +14,20 @@ function App() {
   };
 
   const addItemToData = (item) => {
-    let items = data["items"];
-    item.id = items.length;
-    items.push(item);
-    setData({ items: items });
-    console.log(data);
+    fetch("http://localhost:3000/items", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(item),
+    })
+      .then((response) => response.json())
+      .then((newItem) => {
+        setData((prevData) => ({
+          items: [...prevData.items, newItem],
+        }));
+      })
+      .catch((error) => console.error("Error adding item:", error));
   };
 
   const filterData = (data) => {
