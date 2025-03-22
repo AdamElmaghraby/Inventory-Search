@@ -1,3 +1,18 @@
 {
-  "items": []
+  "items": [
+    {
+      "id": "6afe",
+      "name": "adam",
+      "price": "2",
+      "type": "3",
+      "brand": "3"
+    },
+    {
+      "id": "acda",
+      "name": "fanta",
+      "price": "2.99",
+      "type": "soda",
+      "brand": "pepsi"
+    }
+  ]
 }
