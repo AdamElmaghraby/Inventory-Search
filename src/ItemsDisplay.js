@@ -1,4 +1,4 @@
-function ItemsDisplay(props) {
+function ItemsDisplay({ items, deleteItem }) {
   const showItems = (item) => {
     return (
       <tr>
@@ -7,6 +7,11 @@ function ItemsDisplay(props) {
         <td>${item.price}</td>
         <td>{item.type}</td>
         <td>{item.brand}</td>
+        <td>
+          <button className="btn btn-danger" onClick={() => deleteItem(item)}>
+            Delete
+          </button>
+        </td>
       </tr>
     );
   };
@@ -25,9 +30,10 @@ function ItemsDisplay(props) {
               <th scope="col">Price</th>
               <th scope="col">Type</th>
               <th scope="col">Brand</th>
+              <th scope="col">Delete</th>
             </tr>
           </thead>
-          <tbody>{props.items.map(showItems)}</tbody>
+          <tbody>{items.map(showItems)}</tbody>
         </table>
       </div>
     </div>
