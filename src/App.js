@@ -57,16 +57,25 @@ function App() {
   const filterData = (data) => {
     const filteredData = [];
 
-    if (!filters.name) {
+    const hasFilters =
+      filters.name || filters.price || filters.type || filters.brand;
+
+    if (!hasFilters) {
       return data;
     }
 
     for (const item of data) {
+      console.log("Item Price:", item.price, "Type:", typeof item.price);
+
       if (item.name !== filters.name && filters.name !== "") {
         continue;
       }
 
-      if (item.price > filters.price && filters.name !== 0) {
+      if (
+        filters.price !== undefined &&
+        filters.price !== "" &&
+        item.price > Number(filters.price)
+      ) {
         continue;
       }
 

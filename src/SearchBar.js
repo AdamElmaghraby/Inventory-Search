@@ -11,7 +11,7 @@ function SearchBar(props) {
   const searchButtonPressed = () => {
     props.updateSearchParams({
       name: name,
-      price: price,
+      price: Number(price),
       type: type,
       brand: brand,
     });
@@ -40,7 +40,7 @@ function SearchBar(props) {
             type="number"
             className="form-control"
             value={price}
-            onChange={(e) => setPrice(e.target.value)}
+            onChange={(e) => setPrice(Number(e.target.value))}
           />
         </div>
         <div className="col">
@@ -66,13 +66,13 @@ function SearchBar(props) {
       </div>
       <div className="row mt-3">
         <div className="col-4" />
-          <button
-            type="button"
-            className="col-4 btn btn-primary"
-            onClick={searchButtonPressed}
-          >
-            Search
-          </button>
+        <button
+          type="button"
+          className="col-4 btn btn-primary"
+          onClick={searchButtonPressed}
+        >
+          Search
+        </button>
       </div>
     </div>
   );
